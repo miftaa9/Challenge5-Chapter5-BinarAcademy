@@ -8,7 +8,15 @@
     "tags": [
         {
             "name": "Shops",
-            "description": "This is API for managing CRUD shops."
+            "description": "This is API for managing CRUD SHOPS"
+        },
+        {
+            "name": "Products",
+            "description": "This is API for managing CRUD PRODUCTS"
+        },
+        {
+            "name": "Users",
+            "description": "This is API for managing CRUD USERS"
         }
     ],
     "servers": [
@@ -22,6 +30,11 @@
                 "tags": [
                     "Shops"
                 ],
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ],
                 "summary": "Returns a list of shops.",
                 "description": "This is API for get all shop data",
                 "responses": {
@@ -34,7 +47,7 @@
                 "tags": [
                     "Shops"
                 ],
-                "summary": "Success creaete shop",
+                "summary": "Success create shop",
                 "description": "This is API for create new shop",
                 "security": [
                     {
@@ -69,6 +82,404 @@
                 "responses": {
                     "201": {
                         "description": "Success create new Shop",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Toko Mifta"
+                                                },
+                                                "city": {
+                                                    "type": "string",
+                                                    "example": "Mojokerto"
+                                                },
+                                                "userId": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed because name shop is empty",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "failed"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Failed because shop name empty"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Shops"
+                ],
+                "summary": "Success update shop",
+                "description": "This is API for update shop data",
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ],
+                "requestBody": {
+                    "description": "Success create shop data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Toko Mifta"
+                                    },
+                                    "city": {
+                                        "type": "string",
+                                        "example": "Mojokerto"
+                                    },
+                                    "userId": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success update Shop data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Toko Mifta"
+                                                },
+                                                "city": {
+                                                    "type": "string",
+                                                    "example": "Mojokerto"
+                                                },
+                                                "userId": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed because name shop is empty",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "failed"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Failed because shop name empty"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/product": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Returns a list of products.",
+                "description": "This is API for get all shop data",
+                "responses": {
+                    "200": {
+                        "description": "Success get products data"
+                    }
+                }
+            }
+        },
+        "/product/:id": {
+            "post": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Success update shop",
+                "description": "This is API for update shop data",
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ],
+                "requestBody": {
+                    "description": "Success create shop data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Toko Mifta"
+                                    },
+                                    "city": {
+                                        "type": "string",
+                                        "example": "Mojokerto"
+                                    },
+                                    "userId": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success update Shop data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Toko Mifta"
+                                                },
+                                                "city": {
+                                                    "type": "string",
+                                                    "example": "Mojokerto"
+                                                },
+                                                "userId": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed because name shop is empty",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "failed"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Failed because shop name empty"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Returns a list of products.",
+                "description": "This is API for get shop data based on ID",
+                "responses": {
+                    "200": {
+                        "description": "Success get products data"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Success create shop",
+                "description": "This is API for create new shop",
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ],
+                "requestBody": {
+                    "description": "Success create new shop",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Toko Mifta"
+                                    },
+                                    "city": {
+                                        "type": "string",
+                                        "example": "Mojokerto"
+                                    },
+                                    "userId": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success create new Shop",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Toko Mifta"
+                                                },
+                                                "city": {
+                                                    "type": "string",
+                                                    "example": "Mojokerto"
+                                                },
+                                                "userId": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed because name shop is empty",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "failed"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Failed because shop name empty"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Success update shop",
+                "description": "This is API for update shop data",
+                "security": [
+                    {
+                        "bearerToken": []
+                    }
+                ],
+                "requestBody": {
+                    "description": "Success create shop data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Toko Mifta"
+                                    },
+                                    "city": {
+                                        "type": "string",
+                                        "example": "Mojokerto"
+                                    },
+                                    "userId": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success update Shop data",
                         "content": {
                             "application/json": {
                                 "schema": {

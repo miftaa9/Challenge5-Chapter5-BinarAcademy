@@ -115,19 +115,6 @@ async function createUser(req, res) {
         // bungkus password pake bcrypt / proses enkripsi password
         const hashedPassword = bcrypt.hashSync(password, 10);
 
-        const newUser = await users.create({
-            username,
-            password: hashedPassword,
-            role: req.body.role
-        })
-        
-        res.status(201).json({
-            status: 'success',
-            data: {
-                user: newUser
-            }
-        })
-
         // validasi username unique
         const name = await username.length
         const notAvailable = await users.findOne({
@@ -147,6 +134,20 @@ async function createUser(req, res) {
                 message: `Username anda terlalu panjang`,
               });
         }
+        
+        const newUser = await users.create({
+            username,
+            password: hashedPassword,
+            role: req.body.role
+        })
+        
+        res.status(201).json({
+            status: 'success',
+            data: {
+                user: newUser
+            }
+        })
+
     } catch (err) {
         res.status(400).json({
             status: 'failed',
