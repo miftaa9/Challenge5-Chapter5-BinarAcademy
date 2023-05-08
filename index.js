@@ -4,10 +4,6 @@ const express = require('express');
 // untuk baca public directory
 const path =require("path");
 
-// bantu upload file
-// const imagekit = require('./lib/imagekit')
-// const upload = require('./middleware/uploader')
-
 // framework utk http server
 const app = express();
 const PORT = 3000;
